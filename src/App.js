@@ -1,12 +1,17 @@
 import React from 'react';
-import { AuthContext } from './providers/auth';
+import { useAuth } from './providers/auth';
 
 const App = () => {
-  const { user } = React.useContext(AuthContext);
+  const { user, setUser } = useAuth();
+
+  const handleChangeName = e => {
+    setUser({ ...user, name: e.target.value });
+  }
 
   return (
     <div className="App">
       <h2>{user.name}</h2>
+      <input onChange={e => handleChangeName(e)} />
     </div>
   );
 }

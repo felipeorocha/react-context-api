@@ -1,19 +1,17 @@
 import React from 'react';
-import { AuthContext } from '../providers/auth';
+import { useAuth } from '../providers/auth';
 
 const Profile = () => {
-  const { user, setUser } = React.useContext(AuthContext);
+  const { user, setUser } = useAuth();
 
-  const handleChange = e => {
-    e.preventDefault();
-
-    setUser({ ...user, name: e.target.value });
+  const handleChangeAge = e => {
+    setUser({ ...user, age: e.target.value });
   }
 
   return (
     <>
       <h3>{user.age}</h3>
-      <input onChange={e => handleChange(e)} />
+      <input onChange={e => handleChangeAge(e)} />
     </>
   );
 }

@@ -8,11 +8,16 @@ const Profile = () => {
     setUser({ ...user, age: e.target.value });
   }
 
-  const handleChangeVotes = () => {
-    setTimeout(() => {
+  const handleUpVoteClick = () => {
+    setTimeout(() => { // async request simulate for test purposes
       setUser((user) => ({ ...user, votes: user.votes + 1 }));
     }, 2000)
-    console.log(user.votes)
+  }
+
+  const handleDownVoteClick = () => {
+    setTimeout(() => { // async request simulate for test purposes
+      setUser((user) => ({ ...user, votes: user.votes - 1 }));
+    }, 2000)
   }
 
   return (
@@ -20,7 +25,10 @@ const Profile = () => {
       <h3>{user.age}</h3>
       <h3>{user.votes}</h3>
       <input onChange={e => handleChangeAge(e)} />
-      <button onClick={handleChangeVotes}>Vote</button>
+      <div>
+        <button onClick={handleUpVoteClick}>+</button>
+        <button onClick={handleDownVoteClick}>-</button>
+      </div>
     </>
   );
 }

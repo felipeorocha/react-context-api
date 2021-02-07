@@ -20,14 +20,33 @@ const Profile = () => {
     }, 2000)
   }
 
+  const handleBlur = e => {
+    e.target.value = '';
+  }
+
   return (
     <>
       <h3>{user.age}</h3>
       <h3>{user.votes}</h3>
-      <input onChange={e => handleChangeAge(e)} />
-      <div>
-        <button onClick={handleUpVoteClick}>+</button>
-        <button onClick={handleDownVoteClick}>-</button>
+      <label>Age:</label>
+      <input
+        style={{ width: '100%' }}
+        onChange={e => handleChangeAge(e)}
+        onBlur={e => handleBlur(e)}
+      />
+      <div style={{ marginTop: '8px', display: 'flex', justifyContent: 'space-between' }}>
+        <button
+          style={{ height: '25px', width: '25px' }}
+          onClick={handleUpVoteClick}
+        >
+          +
+        </button>
+        <button
+          style={{ height: '25px', width: '25px' }}
+          onClick={handleDownVoteClick}
+        >
+          -
+        </button>
       </div>
     </>
   );

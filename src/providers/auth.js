@@ -5,7 +5,8 @@ export const AuthContext = React.createContext({});
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState({
     name: 'Felipe',
-    age: 25
+    age: 25,
+    votes: 1
   });
 
   return (

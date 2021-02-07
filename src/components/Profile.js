@@ -8,10 +8,19 @@ const Profile = () => {
     setUser({ ...user, age: e.target.value });
   }
 
+  const handleChangeVotes = () => {
+    setTimeout(() => {
+      setUser((user) => ({ ...user, votes: user.votes + 1 }));
+    }, 2000)
+    console.log(user.votes)
+  }
+
   return (
     <>
       <h3>{user.age}</h3>
+      <h3>{user.votes}</h3>
       <input onChange={e => handleChangeAge(e)} />
+      <button onClick={handleChangeVotes}>Vote</button>
     </>
   );
 }

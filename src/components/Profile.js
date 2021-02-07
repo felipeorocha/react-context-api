@@ -27,7 +27,6 @@ const Profile = () => {
   return (
     <>
       <h3>{user.age}</h3>
-      <h3>{user.votes}</h3>
       <label>Age:</label>
       <input
         style={{ width: '100%' }}
@@ -41,6 +40,7 @@ const Profile = () => {
         >
           +
         </button>
+        <h3 style={{ margin: 'auto' }}>{user.votes}</h3>
         <button
           style={{ height: '25px', width: '25px' }}
           onClick={handleDownVoteClick}
